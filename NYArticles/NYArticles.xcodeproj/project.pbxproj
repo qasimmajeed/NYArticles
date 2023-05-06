@@ -124,8 +124,8 @@
 			children = (
 				9C38D6332A067D210096B970 /* UseCases */,
 				9C38D6392A067E350096B970 /* Models */,
-				9C38D6612A0697790096B970 /* ArticleDetail */,
 				9C38D6322A067D150096B970 /* PopularArticles */,
+				9C38D6612A0697790096B970 /* ArticleDetail */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
