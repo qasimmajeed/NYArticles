@@ -26,7 +26,7 @@ struct PopularArticlesCoordinator: PopularArticlesCoordinatorProtocol {
         let storyboard = UIStoryboard(name: .articles, bundle: Bundle.main)
         let viewModel = PopularArticlesViewModel(navigator: self)
         let tableViewDelegate = PopularArticlesTableDataSourceDelegate(viewModel: viewModel)
-        let famousArticlesViewController = storyboard.instantiateViewController(identifier: "PopularArticlesViewController") {
+        let famousArticlesViewController = storyboard.instantiateViewController(identifier: PopularArticlesViewController.identifier) {
             PopularArticlesViewController(coder: $0, viewModel: viewModel, tableViewDelegate: tableViewDelegate)
         }
         navigationController.setViewControllers([famousArticlesViewController], animated: true)
@@ -38,7 +38,7 @@ struct PopularArticlesCoordinator: PopularArticlesCoordinatorProtocol {
 extension PopularArticlesCoordinator: PopularArticlesViewModelNavigation {
     func showArticleDetail(_ article: Article) {
         let storyboard = UIStoryboard(name: .articles, bundle: Bundle.main)
-        let detailViewController = storyboard.instantiateViewController(identifier: "ArticleDetailViewController") {
+        let detailViewController = storyboard.instantiateViewController(identifier: ArticleDetailViewController.identifier) {
             ArticleDetailViewController(coder: $0, viewModel: ArticleDetailViewModel(article: article))
         }
         navigationController.pushViewController(detailViewController, animated: true)
