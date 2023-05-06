@@ -12,11 +12,11 @@ final class ArticleDetailViewController: UIViewController {
 
     private let viewModel: ArticleDetailViewModel
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var detailLabel: UILabel!
-    @IBOutlet var byLineLabel: UILabel!
-    @IBOutlet var sectionTitleLabel: UILabel!
-    @IBOutlet var publishedDataLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var detailLabel: UILabel!
+    @IBOutlet private var byLineLabel: UILabel!
+    @IBOutlet private var sectionTitleLabel: UILabel!
+    @IBOutlet private var publishedDataLabel: UILabel!
 
     // MARK: - Init
 

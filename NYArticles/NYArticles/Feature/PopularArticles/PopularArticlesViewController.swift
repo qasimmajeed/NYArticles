@@ -12,8 +12,8 @@ final class PopularArticlesViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: PopularArticlesViewModel
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var loadingIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var loadingIndicatorView: UIActivityIndicatorView!
     private var cancellable = Set<AnyCancellable>()
     private lazy var pullToRefresh: UIRefreshControl = {
         let refresh = UIRefreshControl()

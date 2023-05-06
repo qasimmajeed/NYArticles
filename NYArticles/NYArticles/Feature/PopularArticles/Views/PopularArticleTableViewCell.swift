@@ -11,11 +11,11 @@ import UIKit
 final class PopularArticleTableViewCell: UITableViewCell {
     // MARK: - Properties
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var byLineLabel: UILabel!
-    @IBOutlet var sectionTitleLabel: UILabel!
-    @IBOutlet var publishedDataLabel: UILabel!
-    @IBOutlet var articleImageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var byLineLabel: UILabel!
+    @IBOutlet private var sectionTitleLabel: UILabel!
+    @IBOutlet private var publishedDataLabel: UILabel!
+    @IBOutlet private var articleImageView: UIImageView!
 
     var viewModel: PopularArticleCellViewModel? {
         didSet {
