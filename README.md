@@ -11,7 +11,7 @@ NY Times famous articles implemented using mvvm, clean architecture(usecases) an
  * Requirements
 
  # Overview
-    This project is created by implementation of clean architecure with MVVM-C.The main basic flow of the app is that View is having the viewmodel which contains all the logic to how to pull the data and pass it to the view in order to visible in the view and for the navigation it uses the coordintor pattren .The main backbone of the architecure is the use-cases. The Network feature is having the independent testcases. The network feature is more then 90% of code coverage.
+ * This project is created by using of clean architecure with MVVM-C.The main basic flow of the app is that View is having the viewmodel which contains all the logic to how to pull the data and pass it to the view in order to visible in the view and for the navigation it uses the coordintor pattren. The main backbone of the architecure is the use-cases. The Network feature is having the independent testcases with more then 90% of code coverage.
     
 # Screen shots
 <table>
