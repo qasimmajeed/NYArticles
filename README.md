@@ -41,6 +41,8 @@ NY Times famous articles implemented using mvvm, clean architecture(usecases) an
     * **PopularArticlesViewController** This view is responsible to show the famous articles.
     
     * **Constants** Its contains the api keys inorder to have the different key change 'apiKey'
+    
+    * **Pull to refresh** if the user need to update the data or required to refresh on network fail
 
  # How To Run
   The app required the minimum iOS target 13.0. Use the latest xcode to Run the app. Kindly update the Api key in Constants-> apiKey
