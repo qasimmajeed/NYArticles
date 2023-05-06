@@ -146,11 +146,11 @@
 		9CB4889E2A066DE9008E8B39 /* NYArticles */ = {
 			isa = PBXGroup;
 			children = (
+				9C38D62E2A067B3D0096B970 /* AppSetup */,
 				9C38D63E2A067F320096B970 /* Constants */,
 				9C38D6312A067B6A0096B970 /* Resources */,
 				9C38D6302A067B590096B970 /* Storyboards */,
 				9C38D62F2A067B490096B970 /* Feature */,
-				9C38D62E2A067B3D0096B970 /* AppSetup */,
 				9CB488A32A066DE9008E8B39 /* ViewController.swift */,
 			);
 			path = NYArticles;
