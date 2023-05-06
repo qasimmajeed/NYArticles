@@ -41,6 +41,7 @@ final class PopularArticlesViewController: UIViewController {
 
     private func configureUI() {
         title = viewModel.title
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func binding() {
