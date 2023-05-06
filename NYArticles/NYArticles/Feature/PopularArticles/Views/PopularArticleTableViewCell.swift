@@ -1,0 +1,38 @@
+//
+//  PopularArticleTableViewCell.swift
+//  NYArticles
+//
+//  Created by Muhammad Qasim Majeed on 06/05/2023.
+//
+
+import Kingfisher
+import UIKit
+
+final class PopularArticleTableViewCell: UITableViewCell {
+    // MARK: - Properties
+
+    static var reuseAbleCellIdentifier: String = "PopularArticleTableViewCell"
+
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var byLineLabel: UILabel!
+    @IBOutlet var sectionTitleLabel: UILabel!
+    @IBOutlet var publishedDataLebel: UILabel!
+    @IBOutlet var articleImageView: UIImageView!
+
+    var viewModel: PopularArticleCellViewModel? {
+        didSet {
+            if let viewModel = viewModel {
+                titleLabel.text = viewModel.title
+                byLineLabel.text = viewModel.byLineText
+                sectionTitleLabel.text = viewModel.sectionTitle
+                publishedDataLebel.text = viewModel.publishedDate
+                articleImageView.kf.setImage(with: viewModel.articleImageUrl)
+            }
+        }
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        articleImageView.layer.cornerRadius = articleImageView.bounds.size.height / 2
+    }
+}

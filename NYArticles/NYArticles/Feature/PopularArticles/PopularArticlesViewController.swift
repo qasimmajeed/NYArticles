@@ -5,12 +5,16 @@
 //  Created by Muhammad Qasim Majeed on 06/05/2023.
 //
 
+import Combine
 import UIKit
 
 final class PopularArticlesViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: PopularArticlesViewModel
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var loadingIndicatorView: UIActivityIndicatorView!
+    private var cancellable = Set<AnyCancellable>()
 
     // MARK: - Init
 
@@ -29,6 +33,7 @@ final class PopularArticlesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        binding()
         viewModel.fetchArticles()
     }
 
@@ -36,5 +41,50 @@ final class PopularArticlesViewController: UIViewController {
 
     private func configureUI() {
         title = viewModel.title
+    }
+
+    private func binding() {
+        viewModel.stateDidUpdate.sink { [weak self] state in
+            guard let self = self else { return }
+            self.updateState(state: state)
+        }.store(in: &cancellable)
+    }
+
+    private func updateState(state: PopularArticlesViewModelViewState) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            switch state {
+            case let .showError(title, message):
+                self.showAlert(title: title, message: message)
+            case .showLoading:
+                self.loadingIndicatorView.startAnimating()
+                self.loadingIndicatorView.isHidden = false
+            case .hideLoading:
+                self.loadingIndicatorView.stopAnimating()
+                self.loadingIndicatorView.isHidden = true
+            case .showArticles:
+                self.tableView.reloadData()
+            }
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate & UITableViewDataSource
+
+extension PopularArticlesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularArticleTableViewCell.reuseAbleCellIdentifier) as? PopularArticleTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.viewModel = viewModel.cellViewModelAtIndex(index: indexPath.row)
+        return cell
+    }
+
+    func numberOfSections(in _: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return viewModel.numberOfRows
     }
 }

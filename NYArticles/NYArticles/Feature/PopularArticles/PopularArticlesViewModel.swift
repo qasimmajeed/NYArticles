@@ -22,6 +22,7 @@ final class PopularArticlesViewModel {
     private let stateDidUpdateSubject = PassthroughSubject<PopularArticlesViewModelViewState, Never>()
     private var cancellable: Set<AnyCancellable> = .init()
     private var articles: [Article] = .init()
+    private var cellViewModels: [PopularArticleCellViewModel] = .init()
 
     // MARK: - Properties
 
@@ -61,7 +62,15 @@ final class PopularArticlesViewModel {
             } receiveValue: { [weak self] articles in
                 guard let self = self else { return }
                 self.articles = articles
+                self.cellViewModels = self.articles.map { PopularArticleCellViewModel(article: $0) }
                 self.stateDidUpdateSubject.send(.showArticles)
             }.store(in: &cancellable)
+    }
+
+    func cellViewModelAtIndex(index: Int) -> PopularArticleCellViewModel? {
+        if cellViewModels.count > index {
+            return cellViewModels[index]
+        }
+        return nil
     }
 }
