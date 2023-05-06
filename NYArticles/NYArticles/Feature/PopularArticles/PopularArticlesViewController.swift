@@ -71,7 +71,10 @@ final class PopularArticlesViewController: UIViewController {
             case .hideLoading:
                 self.loadingIndicatorView.stopAnimating()
                 self.loadingIndicatorView.isHidden = true
-                self.pullToRefresh.endRefreshing()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                    guard let self = self else { return }
+                    self.pullToRefresh.endRefreshing()
+                }
             case .showArticles:
                 self.tableView.reloadData()
             }
