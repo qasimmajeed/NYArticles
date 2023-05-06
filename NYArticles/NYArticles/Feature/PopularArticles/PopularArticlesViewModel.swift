@@ -12,7 +12,7 @@ protocol PopularArticlesViewModelNavigation {
 }
 
 /// State for the ViewModel
-enum PopularArticlesViewModelViewState {
+enum PopularArticlesViewModelViewState: Equatable {
     case showLoading
     case hideLoading
     case showArticles
@@ -62,6 +62,7 @@ final class PopularArticlesViewModel {
                 switch completion {
                 case .failure:
                     self.stateDidUpdateSubject.send(.showError(title: "Error", message: "Unexpected Error happened!"))
+                    self.stateDidUpdateSubject.send(.hideLoading)
                 default:
                     self.stateDidUpdateSubject.send(.hideLoading)
                 }
