@@ -18,5 +18,6 @@ enum Constants {
         static let famousArticles = "/svc/mostpopular/v2/mostviewed/all-sections/7.json"
     }
 
+    //Please add the api key here
     static let apiKey = "5gEOQEPZCdMMYh4ywYAmT4WoN9z6ELGm"
 }
