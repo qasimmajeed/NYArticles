@@ -7,4 +7,18 @@
 
 import Foundation
 
-struct Article: Decodable {}
+struct Article: Decodable {
+    let id: Int
+    let title: String
+    let abstract: String
+    let publishedDate: String
+    let byLine: String
+    let section: String
+    var media: [Media]?
+
+    enum CodingKeys: String, CodingKey {
+        case id, title, abstract, section, media
+        case publishedDate = "published_date"
+        case byLine = "byline"
+    }
+}
