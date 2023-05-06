@@ -123,6 +123,6 @@ final class PopularArticlesViewModelTestCases: XCTestCase {
         sut.didSelectAtIndex(index: 0)
 
         // Assert
-        XCTAssertTrue(mockNavigator.showArticleDetailDidCall, "The cell viewModel should return not nil")
+        XCTAssertTrue(mockNavigator.showArticleDetailDidCall, "The detail show be called")
     }
 }
