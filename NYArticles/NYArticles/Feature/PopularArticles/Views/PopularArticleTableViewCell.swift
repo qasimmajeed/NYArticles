@@ -11,8 +11,6 @@ import UIKit
 final class PopularArticleTableViewCell: UITableViewCell {
     // MARK: - Properties
 
-    static var reuseAbleCellIdentifier: String = "PopularArticleTableViewCell"
-
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var byLineLabel: UILabel!
     @IBOutlet var sectionTitleLabel: UILabel!
@@ -30,6 +28,8 @@ final class PopularArticleTableViewCell: UITableViewCell {
             }
         }
     }
+
+    // MARK: - Methods
 
     override func layoutSubviews() {
         super.layoutSubviews()

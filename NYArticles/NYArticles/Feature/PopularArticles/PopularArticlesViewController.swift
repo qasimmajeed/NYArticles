@@ -85,9 +85,7 @@ final class PopularArticlesViewController: UIViewController {
 
 extension PopularArticlesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularArticleTableViewCell.reuseAbleCellIdentifier) as? PopularArticleTableViewCell else {
-            return UITableViewCell()
-        }
+        let cell: PopularArticleTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.viewModel = viewModel.cellViewModelAtIndex(index: indexPath.row)
         return cell
     }
