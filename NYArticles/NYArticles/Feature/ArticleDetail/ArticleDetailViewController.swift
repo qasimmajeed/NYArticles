@@ -34,15 +34,10 @@ final class ArticleDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         binding()
     }
 
     // MARK: - Private Methods
-
-    private func configureUI() {
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
 
     private func binding() {
         titleLabel.text = viewModel.title
