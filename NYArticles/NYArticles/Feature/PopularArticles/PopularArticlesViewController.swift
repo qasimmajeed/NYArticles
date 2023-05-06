@@ -15,6 +15,11 @@ final class PopularArticlesViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loadingIndicatorView: UIActivityIndicatorView!
     private var cancellable = Set<AnyCancellable>()
+    private lazy var pullToRefresh: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: viewModel.refreshTitle)
+        return refresh
+    }()
 
     // MARK: - Init
 
@@ -42,6 +47,8 @@ final class PopularArticlesViewController: UIViewController {
     private func configureUI() {
         title = viewModel.title
         navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.addSubview(pullToRefresh)
+        pullToRefresh.addTarget(self, action: #selector(pullToRefreshAction), for: .valueChanged)
     }
 
     private func binding() {
@@ -63,10 +70,15 @@ final class PopularArticlesViewController: UIViewController {
             case .hideLoading:
                 self.loadingIndicatorView.stopAnimating()
                 self.loadingIndicatorView.isHidden = true
+                self.pullToRefresh.endRefreshing()
             case .showArticles:
                 self.tableView.reloadData()
             }
         }
+    }
+
+    @objc func pullToRefreshAction() {
+        viewModel.fetchArticles()
     }
 }
 
