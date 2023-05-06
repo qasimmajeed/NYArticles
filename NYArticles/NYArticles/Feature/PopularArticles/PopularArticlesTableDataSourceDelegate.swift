@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PopularArticlesTableDataSourceDelegateProtocol: UITableViewDelegate, UITableViewDataSource {
+protocol PopularArticlesTableDataSourceDelegateProtocol: AnyObject, UITableViewDelegate, UITableViewDataSource {
     var viewModel: PopularArticlesViewModel { get set }
 }
 
