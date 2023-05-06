@@ -31,8 +31,12 @@ final class PopularArticleTableViewCell: UITableViewCell {
 
     // MARK: - Methods
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureUI()
+    }
+
+    private func configureUI() {
         articleImageView.layer.cornerRadius = articleImageView.bounds.size.height / 2
     }
 }
