@@ -16,7 +16,7 @@ final class PopularArticleTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var byLineLabel: UILabel!
     @IBOutlet var sectionTitleLabel: UILabel!
-    @IBOutlet var publishedDataLebel: UILabel!
+    @IBOutlet var publishedDataLabel: UILabel!
     @IBOutlet var articleImageView: UIImageView!
 
     var viewModel: PopularArticleCellViewModel? {
@@ -25,7 +25,7 @@ final class PopularArticleTableViewCell: UITableViewCell {
                 titleLabel.text = viewModel.title
                 byLineLabel.text = viewModel.byLineText
                 sectionTitleLabel.text = viewModel.sectionTitle
-                publishedDataLebel.text = viewModel.publishedDate
+                publishedDataLabel.text = viewModel.publishedDate
                 articleImageView.kf.setImage(with: viewModel.articleImageUrl)
             }
         }

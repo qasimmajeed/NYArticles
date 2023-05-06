@@ -18,7 +18,7 @@ final class PopularArticlesViewController: UIViewController {
 
     // MARK: - Init
 
-    init?(coder: NSCoder, viewModel: PopularArticlesViewModel = PopularArticlesViewModel()) {
+    init?(coder: NSCoder, viewModel: PopularArticlesViewModel) {
         self.viewModel = viewModel
         super.init(coder: coder)
     }
@@ -86,5 +86,10 @@ extension PopularArticlesViewController: UITableViewDelegate, UITableViewDataSou
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return viewModel.numberOfRows
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.didSelectAtIndex(index: indexPath.row)
     }
 }

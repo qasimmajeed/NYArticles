@@ -7,6 +7,10 @@
 
 import Combine
 
+protocol PopularArticlesViewModelNavigation {
+    func showArticleDetail(_ article: Article)
+}
+
 /// State for the ViewModel
 enum PopularArticlesViewModelViewState {
     case showLoading
@@ -19,6 +23,7 @@ final class PopularArticlesViewModel {
     // MARK: - Private Properties
 
     private let useCase: ArticleUseCaseProtocol
+    private let navigator: PopularArticlesViewModelNavigation
     private let stateDidUpdateSubject = PassthroughSubject<PopularArticlesViewModelViewState, Never>()
     private var cancellable: Set<AnyCancellable> = .init()
     private var articles: [Article] = .init()
@@ -42,8 +47,9 @@ final class PopularArticlesViewModel {
 
     // MARK: - init
 
-    init(useCase: ArticleUseCaseProtocol = ArticleUseCase()) {
+    init(useCase: ArticleUseCaseProtocol = ArticleUseCase(), navigator: PopularArticlesViewModelNavigation) {
         self.useCase = useCase
+        self.navigator = navigator
     }
 
     // MARK: - Methods
@@ -72,5 +78,11 @@ final class PopularArticlesViewModel {
             return cellViewModels[index]
         }
         return nil
+    }
+
+    func didSelectAtIndex(index: Int) {
+        if articles.count > index {
+            navigator.showArticleDetail(articles[index])
+        }
     }
 }
