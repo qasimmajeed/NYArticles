@@ -118,10 +118,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="juJ-4v-Xxf" id="Ra6-hR-zdm"/>
-                                    <outlet property="delegate" destination="juJ-4v-Xxf" id="Lkd-mi-oEl"/>
-                                </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DSJ-iO-SdP">
                                 <rect key="frame" x="178" y="420" width="37" height="37"/>
