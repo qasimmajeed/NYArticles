@@ -34,6 +34,10 @@ final class PopularArticlesViewModel {
 
     private(set) lazy var stateDidUpdate: AnyPublisher<PopularArticlesViewModelViewState, Never> = stateDidUpdateSubject.eraseToAnyPublisher()
 
+    var refreshTitle: String {
+        return "Pull to refresh"
+    }
+
     var title: String {
         return "NY Times Most Popular"
     }
