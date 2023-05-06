@@ -13,6 +13,7 @@ final class ArticleDetailViewController: UIViewController {
     private let viewModel: ArticleDetailViewModel
 
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
     @IBOutlet var byLineLabel: UILabel!
     @IBOutlet var sectionTitleLabel: UILabel!
     @IBOutlet var publishedDataLabel: UILabel!
@@ -45,6 +46,7 @@ final class ArticleDetailViewController: UIViewController {
 
     private func binding() {
         titleLabel.text = viewModel.title
+        detailLabel.text = viewModel.detail
         byLineLabel.text = viewModel.byLineText
         sectionTitleLabel.text = viewModel.sectionTitle
         publishedDataLabel.text = viewModel.publishedDate

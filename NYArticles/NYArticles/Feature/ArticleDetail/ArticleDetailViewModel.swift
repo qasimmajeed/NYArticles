@@ -14,7 +14,8 @@ struct ArticleDetailViewModel {
 
     // MARK: - Properties
 
-    var title: String
+    let title: String
+    let detail: String
     let byLineText: String
     let sectionTitle: String
     let publishedDate: String
@@ -24,6 +25,7 @@ struct ArticleDetailViewModel {
     init(article: Article) {
         self.article = article
         title = article.title
+        detail = article.abstract
         byLineText = article.byLine
         sectionTitle = article.section
         publishedDate = article.publishedDate
