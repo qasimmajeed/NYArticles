@@ -48,8 +48,6 @@ final class PopularArticlesViewController: UIViewController {
         title = viewModel.title
         tableView.addSubview(pullToRefresh)
         pullToRefresh.addTarget(self, action: #selector(pullToRefreshAction), for: .valueChanged)
-        navigationItem.largeTitleDisplayMode = .automatic
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func binding() {
