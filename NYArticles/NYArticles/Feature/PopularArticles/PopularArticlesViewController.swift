@@ -7,10 +7,34 @@
 
 import UIKit
 
-class PopularArticlesViewController: UIViewController {
+final class PopularArticlesViewController: UIViewController {
+    // MARK: - Properties
+
+    private let viewModel: PopularArticlesViewModel
+
+    // MARK: - Init
+
+    init?(coder: NSCoder, viewModel: PopularArticlesViewModel = PopularArticlesViewModel()) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("viewModel(PopularArticlesViewModel) must provided while initialisation")
+    }
+
+    // MARK: - View Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+        viewModel.fetchArticles()
+    }
 
-        // Do any additional setup after loading the view.
+    // MARK: - Private Methods
+
+    private func configureUI() {
+        title = viewModel.title
     }
 }

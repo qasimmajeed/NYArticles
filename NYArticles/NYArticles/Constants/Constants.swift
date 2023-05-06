@@ -17,4 +17,6 @@ enum Constants {
     enum APIPaths {
         static let famousArticles = "/svc/mostpopular/v2/mostviewed/all-sections/7.json"
     }
+
+    static let apiKey = "5gEOQEPZCdMMYh4ywYAmT4WoN9z6ELGm"
 }
