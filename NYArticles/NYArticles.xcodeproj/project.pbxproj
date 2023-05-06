@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C38D6352A067DBF0096B970 /* ArticleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C38D6342A067DBF0096B970 /* ArticleUseCase.swift */; };
+		9C38D6382A067DE40096B970 /* NetworkFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 9C38D6372A067DE40096B970 /* NetworkFeature */; };
+		9C38D63B2A067E770096B970 /* PopularArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C38D63A2A067E770096B970 /* PopularArticlesRequest.swift */; };
+		9C38D63D2A067EDB0096B970 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C38D63C2A067EDB0096B970 /* Article.swift */; };
+		9C38D6402A067F450096B970 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C38D63F2A067F450096B970 /* Constants.swift */; };
+		9C38D6422A067FC00096B970 /* FamousArticlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C38D6412A067FC00096B970 /* FamousArticlesResponse.swift */; };
 		9CB488A02A066DE9008E8B39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB4889F2A066DE9008E8B39 /* AppDelegate.swift */; };
 		9CB488A22A066DE9008E8B39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB488A12A066DE9008E8B39 /* SceneDelegate.swift */; };
 		9CB488A42A066DE9008E8B39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB488A32A066DE9008E8B39 /* ViewController.swift */; };
@@ -16,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C38D6342A067DBF0096B970 /* ArticleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleUseCase.swift; sourceTree = "<group>"; };
+		9C38D63A2A067E770096B970 /* PopularArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularArticlesRequest.swift; sourceTree = "<group>"; };
+		9C38D63C2A067EDB0096B970 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		9C38D63F2A067F450096B970 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C38D6412A067FC00096B970 /* FamousArticlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamousArticlesResponse.swift; sourceTree = "<group>"; };
 		9CB4889C2A066DE9008E8B39 /* NYArticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYArticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CB4889F2A066DE9008E8B39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CB488A12A066DE9008E8B39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C38D6382A067DE40096B970 /* NetworkFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +61,9 @@
 		9C38D62F2A067B490096B970 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				9C38D6392A067E350096B970 /* Models */,
+				9C38D6332A067D210096B970 /* UseCases */,
+				9C38D6322A067D150096B970 /* Articles */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -71,11 +86,52 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		9C38D6322A067D150096B970 /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Articles;
+			sourceTree = "<group>";
+		};
+		9C38D6332A067D210096B970 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				9C38D6342A067DBF0096B970 /* ArticleUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		9C38D6362A067DE40096B970 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C38D6392A067E350096B970 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C38D63A2A067E770096B970 /* PopularArticlesRequest.swift */,
+				9C38D63C2A067EDB0096B970 /* Article.swift */,
+				9C38D6412A067FC00096B970 /* FamousArticlesResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C38D63E2A067F320096B970 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9C38D63F2A067F450096B970 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		9CB488932A066DE9008E8B39 = {
 			isa = PBXGroup;
 			children = (
 				9CB4889E2A066DE9008E8B39 /* NYArticles */,
 				9CB4889D2A066DE9008E8B39 /* Products */,
+				9C38D6362A067DE40096B970 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +146,7 @@
 		9CB4889E2A066DE9008E8B39 /* NYArticles */ = {
 			isa = PBXGroup;
 			children = (
+				9C38D63E2A067F320096B970 /* Constants */,
 				9C38D6312A067B6A0096B970 /* Resources */,
 				9C38D6302A067B590096B970 /* Storyboards */,
 				9C38D62F2A067B490096B970 /* Feature */,
@@ -115,6 +172,9 @@
 			dependencies = (
 			);
 			name = NYArticles;
+			packageProductDependencies = (
+				9C38D6372A067DE40096B970 /* NetworkFeature */,
+			);
 			productName = NYArticles;
 			productReference = 9CB4889C2A066DE9008E8B39 /* NYArticles.app */;
 			productType = "com.apple.product-type.application";
@@ -170,7 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C38D6422A067FC00096B970 /* FamousArticlesResponse.swift in Sources */,
+				9C38D6352A067DBF0096B970 /* ArticleUseCase.swift in Sources */,
 				9CB488A42A066DE9008E8B39 /* ViewController.swift in Sources */,
+				9C38D63D2A067EDB0096B970 /* Article.swift in Sources */,
+				9C38D63B2A067E770096B970 /* PopularArticlesRequest.swift in Sources */,
+				9C38D6402A067F450096B970 /* Constants.swift in Sources */,
 				9CB488A02A066DE9008E8B39 /* AppDelegate.swift in Sources */,
 				9CB488A22A066DE9008E8B39 /* SceneDelegate.swift in Sources */,
 			);
@@ -396,6 +461,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C38D6372A067DE40096B970 /* NetworkFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CB488942A066DE9008E8B39 /* Project object */;
 }
