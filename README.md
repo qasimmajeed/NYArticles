@@ -20,8 +20,8 @@ NY Times famous articles implemented using mvvm, clean architecture(usecases) an
     <td>Detail</td>
   </tr>
   <tr>
-  <td><img src="Screenshots/articles.png" alt="articles" width="200"/></td>
-    <td><img src="Screenshots/detail.png" alt="detail" width="200"/></td>
+  <td><img src="Screenshots/articles.PNG" alt="articles" width="200"/></td>
+    <td><img src="Screenshots/detail.PNG" alt="detail" width="200"/></td>
    </tr>
  </table>
  
