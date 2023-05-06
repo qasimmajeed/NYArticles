@@ -6,6 +6,7 @@
 //
 
 import Combine
+import NetworkFeature
 
 protocol PopularArticlesViewModelNavigation {
     func showArticleDetail(_ article: Article)
@@ -60,8 +61,8 @@ final class PopularArticlesViewModel {
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 switch completion {
-                case .failure:
-                    self.stateDidUpdateSubject.send(.showError(title: "Error", message: "Unexpected Error happened!"))
+                case let .failure(error):
+                    self.stateDidUpdateSubject.send(.showError(title: "Error", message: error.localizedDescription))
                     self.stateDidUpdateSubject.send(.hideLoading)
                 default:
                     self.stateDidUpdateSubject.send(.hideLoading)
