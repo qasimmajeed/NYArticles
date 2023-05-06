@@ -67,7 +67,7 @@ final class PopularArticlesViewModel {
                 switch completion {
                 case let .failure(error):
                     self.stateDidUpdateSubject.send(.showError(title: "Error", message: error.localizedDescription))
-                    self.stateDidUpdateSubject.send(.hideLoading)
+                    fallthrough
                 default:
                     self.stateDidUpdateSubject.send(.hideLoading)
                 }
