@@ -25,8 +25,9 @@ struct AppCoordinator: AppCoordinatorProtocol {
     // MARK: - Coordinator
 
     func start() {
+        let popularArticleCoordinator = PopularArticlesCoordinator(navigationController: navigation)
         window.rootViewController = navigation
         window.makeKeyAndVisible()
+        popularArticleCoordinator.start()
     }
 }
-
