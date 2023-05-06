@@ -12,6 +12,7 @@ final class PopularArticlesViewController: UIViewController {
     // MARK: - Properties
 
     private let viewModel: PopularArticlesViewModel
+    private let tableViewDelegate: PopularArticlesTableDataSourceDelegateProtocol
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var loadingIndicatorView: UIActivityIndicatorView!
     private var cancellable = Set<AnyCancellable>()
@@ -23,8 +24,9 @@ final class PopularArticlesViewController: UIViewController {
 
     // MARK: - Init
 
-    init?(coder: NSCoder, viewModel: PopularArticlesViewModel) {
+    init?(coder: NSCoder, viewModel: PopularArticlesViewModel, tableViewDelegate: PopularArticlesTableDataSourceDelegateProtocol) {
         self.viewModel = viewModel
+        self.tableViewDelegate = tableViewDelegate
         super.init(coder: coder)
     }
 
@@ -51,6 +53,8 @@ final class PopularArticlesViewController: UIViewController {
     }
 
     private func binding() {
+        tableView.delegate = tableViewDelegate
+        tableView.dataSource = tableViewDelegate
         viewModel.stateDidUpdate.sink { [weak self] state in
             guard let self = self else { return }
             self.updateState(state: state)
@@ -81,28 +85,5 @@ final class PopularArticlesViewController: UIViewController {
 
     @objc func pullToRefreshAction() {
         viewModel.fetchArticles()
-    }
-}
-
-// MARK: - UITableViewDelegate & UITableViewDataSource
-
-extension PopularArticlesViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PopularArticleTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.viewModel = viewModel.cellViewModelAtIndex(index: indexPath.row)
-        return cell
-    }
-
-    func numberOfSections(in _: UITableView) -> Int {
-        return viewModel.numberOfSections
-    }
-
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return viewModel.numberOfRows
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.didSelectAtIndex(index: indexPath.row)
     }
 }
