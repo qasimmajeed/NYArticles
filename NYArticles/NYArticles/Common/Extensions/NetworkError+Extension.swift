@@ -14,7 +14,7 @@ extension NetworkError: LocalizedError {
             return "Please update/provide the api key at Constants -> apiKey"
 
         } else {
-            return "Unexpected Error happened!"
+            return "We couldn't connect to the internet. Please check your connection and try again."
         }
     }
 }
