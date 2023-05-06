@@ -34,7 +34,12 @@ final class ArticleDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         binding()
+    }
+
+    private func configureUI() {
+        navigationItem.largeTitleDisplayMode = .never
     }
 
     // MARK: - Private Methods
