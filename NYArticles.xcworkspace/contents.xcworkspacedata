@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:NetworkFeature">
+      location = "group:NYArticles/NYArticles.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:NYArticles/NYArticles.xcodeproj">
+      location = "group:NetworkFeature">
    </FileRef>
 </Workspace>

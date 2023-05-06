@@ -1,6 +1,6 @@
 //
 //  NetworkTests.swift
-//  
+//
 //
 //  Created by Muhammad Qasim Majeed on 06/05/2023.
 //
@@ -161,4 +161,3 @@ final class NetworkTests: XCTestCase {
         XCTAssertEqual(networkError, NetworkError.invalidURL, "Then invalidURL should thrown ")
     }
 }
-
